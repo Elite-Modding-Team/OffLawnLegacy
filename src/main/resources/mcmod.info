@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "offlawnlegacy",
+    "name": "OffLawn! Legacy",
+    "description": "Port of the OffLawn! mod for 1.12.2.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/Elite-Modding-Team/OffLawnLegacy",
+    "authorList": [
+      "IcarussOne",
+      "ACGaming"
+    ],
+    "credits": "\n Rhodox & Slinky - Originally creating the OffLawn! mod",
+    "logoFile": ""
+  }
+]

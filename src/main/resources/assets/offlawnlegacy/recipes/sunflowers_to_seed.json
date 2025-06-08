@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:double_plant",
+      "data": 0
+    },
+    {
+      "item": "minecraft:double_plant",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "offlawnlegacy:sunflower_bush_seed",
+    "count": 1
+  }
+}

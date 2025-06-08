@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "dirt"
+    },
+    {
+      "item": "minecraft:double_plant",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "offlawnlegacy:lawn",
+    "count": 1
+  }
+}
