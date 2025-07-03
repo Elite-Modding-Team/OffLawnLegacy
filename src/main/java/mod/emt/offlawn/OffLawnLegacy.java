@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import mod.emt.offlawn.init.OLLBlocks;
+import mod.emt.offlawn.world.OLLGeneratorSunflowerBush;
 
 import static mod.emt.offlawn.OffLawnLegacy.*;
 
@@ -35,8 +37,13 @@ public class OffLawnLegacy {
     @SideOnly(Side.CLIENT)
     @Mod.EventHandler
     public void initClient(FMLInitializationEvent event) {
-        LOGGER.info(NAME + " initialized");
         registerGrassColorHandlers();
+    }
+
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event) {
+        LOGGER.info(NAME + " initialized");
+        GameRegistry.registerWorldGenerator(new OLLGeneratorSunflowerBush(), 300); // TODO: Make this configurable
     }
 
     @SideOnly(Side.CLIENT)
