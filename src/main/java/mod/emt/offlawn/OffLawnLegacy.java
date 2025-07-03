@@ -1,11 +1,22 @@
 package mod.emt.offlawn;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import mod.emt.offlawn.init.OLLBlocks;
 
 import static mod.emt.offlawn.OffLawnLegacy.*;
 
@@ -22,17 +33,29 @@ public class OffLawnLegacy {
     public static OffLawnLegacy instance;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.info(NAME + " pre-initialized");
-    }
-
-    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         LOGGER.info(NAME + " initialized");
+        registerGrassColorHandlers();
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        LOGGER.info(NAME + " post-initialized");
+    @SideOnly(Side.CLIENT)
+    private void registerGrassColorHandlers() {
+        IBlockColor blockColor = new IBlockColor() {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex) {
+                return Minecraft.getMinecraft().getBlockColors().colorMultiplier(Blocks.GRASS.getDefaultState(), world, pos, tintIndex);
+            }
+        };
+
+        IItemColor itemColor = new IItemColor() {
+            @Override
+            public int colorMultiplier(ItemStack stack, int tintIndex) {
+                return Minecraft.getMinecraft().getBlockColors().colorMultiplier(Blocks.GRASS.getDefaultState(), null, null, tintIndex);
+            }
+        };
+
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(blockColor, OLLBlocks.LAWN);
+
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemColor, OLLBlocks.LAWN);
     }
 }
