@@ -32,8 +32,9 @@ public class OffLawnLegacy {
     @Mod.Instance
     public static OffLawnLegacy instance;
 
+    @SideOnly(Side.CLIENT)
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void initClient(FMLInitializationEvent event) {
         LOGGER.info(NAME + " initialized");
         registerGrassColorHandlers();
     }
