@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "offlawn:blocks/sunflower_bush_top"
+  }
+}

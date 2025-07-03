@@ -1,9 +1,9 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "offlawnlegacy:lawn",
+    "model": "offlawn:lawn",
     "textures": {
-      "all": "offlawnlegacy:blocks/lawn"
+      "all": "offlawn:blocks/lawn"
     }
   },
   "variants": {

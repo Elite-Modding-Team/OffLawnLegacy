@@ -1,11 +1,7 @@
-# CREATIVE TAB
-itemGroup.offlawn.tab=OffLawn! Legacy
-
 # Blocks
-tile.offlawn:beanstalk.name=Beanstalk
-tile.offlawn:lawn.name=Lawn Block
-tile.offlawn:sunflower_bush.name=Sunflower Bush
+tile.offlawn.beanstalk.name=Beanstalk
+tile.offlawn.lawn.name=Lawn Block
+tile.offlawn.sunflower_bush.name=Sunflower Bush
 
 # Items
-item.offlawn:sunflower_bush_seed.name=Sunflower Bush Seed
-
+item.offlawn.sunflower_bush_seed.name=Sunflower Bush Seed
