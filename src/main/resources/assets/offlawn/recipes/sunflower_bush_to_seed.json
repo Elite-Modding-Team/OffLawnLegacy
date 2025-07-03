@@ -2,11 +2,11 @@
   "type": "forge:ore_shapeless",
   "ingredients": [
     {
-      "item": "offlawnlegacy:sunflower_bush"
+      "item": "offlawn:sunflower_bush"
     }
   ],
   "result": {
-    "item": "offlawnlegacy:sunflower_bush_seed",
+    "item": "offlawn:sunflower_bush_seed",
     "count": 1
   }
 }

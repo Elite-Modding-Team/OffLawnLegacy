@@ -6,12 +6,11 @@
       "ore": "dirt"
     },
     {
-      "item": "minecraft:double_plant",
-      "data": 0
+      "item": "offlawn:sunflower_bush_seed"
     }
   ],
   "result": {
-    "item": "offlawnlegacy:lawn",
+    "item": "offlawn:lawn",
     "count": 1
   }
 }

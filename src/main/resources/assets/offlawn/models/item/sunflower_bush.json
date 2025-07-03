@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "offlawnlegacy:blocks/beanstalk"
+    "layer0": "offlawn:blocks/sunflower_bush_top"
   }
 }

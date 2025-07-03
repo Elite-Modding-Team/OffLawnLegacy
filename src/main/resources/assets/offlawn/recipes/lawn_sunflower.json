@@ -6,16 +6,12 @@
       "ore": "dirt"
     },
     {
-      "item": "minecraft:yellow_flower",
-      "data": 0
-    },
-    {
-      "item": "minecraft:yellow_flower",
+      "item": "minecraft:double_plant",
       "data": 0
     }
   ],
   "result": {
-    "item": "offlawnlegacy:lawn",
+    "item": "offlawn:lawn",
     "count": 1
   }
 }

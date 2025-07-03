@@ -6,11 +6,11 @@
       "ore": "vine"
     },
     {
-      "item": "offlawnlegacy:sunflower_bush_seed"
+      "item": "offlawn:sunflower_bush_seed"
     }
   ],
   "result": {
-    "item": "offlawnlegacy:beanstalk",
+    "item": "offlawn:beanstalk",
     "count": 4
   }
 }

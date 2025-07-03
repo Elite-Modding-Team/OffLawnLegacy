@@ -1,6 +1,6 @@
 [
   {
-    "modid": "offlawnlegacy",
+    "modid": "offlawn",
     "name": "OffLawn! Legacy",
     "description": "Port of the OffLawn! mod for 1.12.2.",
     "version": "${version}",
