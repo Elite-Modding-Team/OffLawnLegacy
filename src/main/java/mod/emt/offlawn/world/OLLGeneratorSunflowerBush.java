@@ -25,7 +25,8 @@ public class OLLGeneratorSunflowerBush implements IWorldGenerator {
         boolean hasMountain = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN);
         boolean hasPlains = BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS);
 
-        if (hasForest || hasMountain || hasPlains) {
+        // TODO: Make biome types and dimensions configurable
+        if ((hasForest || hasMountain || hasPlains) && world.provider.getDimension() == 0) {
             int spawnChance = hasPlains ? 32 : 64;
             if (rand.nextInt(spawnChance) != 0) {
                 return;
