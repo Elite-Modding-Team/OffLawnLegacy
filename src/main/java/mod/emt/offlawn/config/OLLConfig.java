@@ -55,6 +55,14 @@ public class OLLConfig {
         @Config.Comment("Rarity for generating sunflower bushes in plains-like biomes, higher = rarer")
         public int sunflowerBushGenRarityPlains = 32;
 
+        @Config.Name("Sunflower Bush Generation Min Temperature")
+        @Config.Comment("Minimum biome temperature for generating sunflower bushes")
+        public double sunflowerBushGenTemperatureMin = 0.5D;
+
+        @Config.Name("Sunflower Bush Generation Max Temperature")
+        @Config.Comment("Maximum biome temperature for generating sunflower bushes")
+        public double sunflowerBushGenTemperatureMax = 1.0D;
+
         @Config.RequiresMcRestart
         @Config.Name("World Generation Weight")
         @Config.Comment("Weight to assign to this generator, heavy weights tend to sink to the bottom of the list of world generators (i.e. they run later)")

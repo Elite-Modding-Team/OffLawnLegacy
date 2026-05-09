@@ -20,6 +20,10 @@ public class OLLGeneratorSunflowerBush implements IWorldGenerator {
         BlockPos biomePos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
         Biome biome = world.getBiome(biomePos);
 
+        if (biome.getDefaultTemperature() < OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenTemperatureMin || biome.getDefaultTemperature() > OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenTemperatureMax) {
+            return;
+        }
+
         if (matchesDimensions(world, OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushDimensions) && matchesBiomeTypes(biome, OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushBiomeTypes)) {
             boolean hasPlains = BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS);
             int spawnChance = hasPlains ? OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenRarityPlains : OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenRarity;
