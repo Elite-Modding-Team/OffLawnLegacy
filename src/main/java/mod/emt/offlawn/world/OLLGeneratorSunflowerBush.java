@@ -1,5 +1,7 @@
 package mod.emt.offlawn.world;
 
+import mod.emt.offlawn.config.OLLConfig;
+import mod.emt.offlawn.init.OLLBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -10,9 +12,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-import mod.emt.offlawn.init.OLLBlocks;
-
-// TODO: Add config options
 public class OLLGeneratorSunflowerBush implements IWorldGenerator {
     private static final Random rand = new Random();
 
@@ -21,13 +20,9 @@ public class OLLGeneratorSunflowerBush implements IWorldGenerator {
         BlockPos biomePos = new BlockPos(chunkX << 4, 0, chunkZ << 4);
         Biome biome = world.getBiome(biomePos);
 
-        boolean hasForest = BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST);
-        boolean hasMountain = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN);
-        boolean hasPlains = BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS);
-
-        // TODO: Make biome types and dimensions configurable
-        if ((hasForest || hasMountain || hasPlains) && world.provider.getDimension() == 0) {
-            int spawnChance = hasPlains ? 32 : 64;
+        if (matchesDimensions(world, OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushDimensions) && matchesBiomeTypes(biome, OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushBiomeTypes)) {
+            boolean hasPlains = BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS);
+            int spawnChance = hasPlains ? OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenRarityPlains : OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenRarity;
             if (rand.nextInt(spawnChance) != 0) {
                 return;
             }
@@ -36,17 +31,40 @@ public class OLLGeneratorSunflowerBush implements IWorldGenerator {
             int baseZ = (chunkZ << 4) + 8 + rand.nextInt(8);
             int baseY = world.getHeight(baseX, baseZ);
 
+            if (baseY < OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenAltitudeMin || baseY > OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenAltitudeMax) {
+                return;
+            }
+
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
-            for (int i = 0; i < 64; i++) {
+            for (int i = 0; i < OLLConfig.WORLD_GEN_SETTINGS.sunflowerBushGenDensity; i++) {
                 int x = baseX + rand.nextInt(8) - rand.nextInt(8);
                 int z = baseZ + rand.nextInt(8) - rand.nextInt(8);
                 int y = baseY + rand.nextInt(4) - rand.nextInt(4);
 
                 pos.setPos(x, y, z);
-                if (y > 0 && world.isAirBlock(pos) && OLLBlocks.SUNFLOWER_BUSH.canPlaceBlockAt(world, pos)) {
+                if (world.getBlockState(pos).getMaterial().isReplaceable() && OLLBlocks.SUNFLOWER_BUSH.canPlaceBlockAt(world, pos)) {
                     OLLBlocks.SUNFLOWER_BUSH.placeAt(world, pos, 2);
                 }
             }
         }
+    }
+
+    public boolean matchesDimensions(World world, int[] dimIds) {
+        for (int id : dimIds) {
+            if (world.provider.getDimension() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean matchesBiomeTypes(Biome biome, String[] typeNames) {
+        for (String name : typeNames) {
+            BiomeDictionary.Type type = BiomeDictionary.Type.getType(name);
+            if (BiomeDictionary.hasType(biome, type)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

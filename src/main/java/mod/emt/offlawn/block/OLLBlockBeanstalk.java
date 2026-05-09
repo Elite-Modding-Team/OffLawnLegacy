@@ -1,5 +1,6 @@
 package mod.emt.offlawn.block;
 
+import mod.emt.offlawn.init.OLLBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -17,8 +18,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
-
-import mod.emt.offlawn.init.OLLBlocks;
 
 public class OLLBlockBeanstalk extends BlockBush implements IGrowable {
     protected static final AxisAlignedBB BEANSTALK_AABB = new AxisAlignedBB(0.15D, 0.0D, 0.15D, 0.85D, 1.0D, 0.85D);

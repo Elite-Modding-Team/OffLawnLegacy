@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class OLLEventRightClickBlock {
     @SubscribeEvent
     public static void sunflowerBushShearedEvent(PlayerInteractEvent.RightClickBlock event) {
-        World world = (World) event.getEntityLiving().world;
+        World world = event.getEntityLiving().world;
         EntityPlayer player = event.getEntityPlayer();
         ItemStack stack = player.inventory.getStackInSlot(player.inventory.currentItem);
 

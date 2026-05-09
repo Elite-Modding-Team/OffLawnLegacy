@@ -1,7 +1,9 @@
 package mod.emt.offlawn.item;
 
+import mod.emt.offlawn.init.OLLBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemSeeds;
@@ -14,11 +16,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
-import mod.emt.offlawn.init.OLLBlocks;
-
 public class OLLItemSunflowerBushSeed extends ItemSeeds {
     public OLLItemSunflowerBushSeed(Block crops, Block soil) {
         super(crops, soil);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @Override

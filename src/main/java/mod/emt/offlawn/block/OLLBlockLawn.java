@@ -1,5 +1,6 @@
 package mod.emt.offlawn.block;
 
+import mod.emt.offlawn.init.OLLBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
@@ -15,8 +16,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
-
-import mod.emt.offlawn.init.OLLBlocks;
 
 public class OLLBlockLawn extends Block implements IGrowable {
     public OLLBlockLawn() {

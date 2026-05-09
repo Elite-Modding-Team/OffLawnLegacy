@@ -1,5 +1,8 @@
 package mod.emt.offlawn;
 
+import mod.emt.offlawn.config.OLLConfig;
+import mod.emt.offlawn.init.OLLBlocks;
+import mod.emt.offlawn.world.OLLGeneratorSunflowerBush;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -13,12 +16,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import mod.emt.offlawn.init.OLLBlocks;
-import mod.emt.offlawn.world.OLLGeneratorSunflowerBush;
 
 import static mod.emt.offlawn.OffLawnLegacy.*;
 
@@ -27,7 +26,7 @@ public class OffLawnLegacy {
     public static final String MOD_ID = "offlawn";
     public static final String MOD_PREFIX = MOD_ID + ":";
     public static final String NAME = "OffLawn! Legacy";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.0.2";
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
     public static final Logger LOGGER = LogManager.getLogger(NAME);
 
@@ -43,7 +42,7 @@ public class OffLawnLegacy {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         LOGGER.info(NAME + " initialized");
-        GameRegistry.registerWorldGenerator(new OLLGeneratorSunflowerBush(), 300); // TODO: Make this configurable
+        GameRegistry.registerWorldGenerator(new OLLGeneratorSunflowerBush(), OLLConfig.WORLD_GEN_SETTINGS.worldGenWeight);
     }
 
     @SideOnly(Side.CLIENT)

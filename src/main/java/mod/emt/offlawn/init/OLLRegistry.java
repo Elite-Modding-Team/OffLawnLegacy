@@ -1,18 +1,14 @@
 package mod.emt.offlawn.init;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.base.Preconditions;
 import mod.emt.offlawn.OffLawnLegacy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import javax.annotation.Nonnull;
 
 @Mod.EventBusSubscriber(modid = OffLawnLegacy.MOD_ID)
 public class OLLRegistry {

@@ -1,5 +1,7 @@
 package mod.emt.offlawn.block;
 
+import mod.emt.offlawn.init.OLLBlocks;
+import mod.emt.offlawn.init.OLLItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -27,9 +29,6 @@ import net.minecraftforge.common.IShearable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import mod.emt.offlawn.init.OLLBlocks;
-import mod.emt.offlawn.init.OLLItems;
 
 @SuppressWarnings("deprecation")
 public class OLLBlockSunflowerBush extends BlockBush implements IGrowable, IShearable {
