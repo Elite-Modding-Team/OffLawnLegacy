@@ -46,7 +46,7 @@ public class OLLGeneratorSunflowerBush implements IWorldGenerator {
                 int y = baseY + rand.nextInt(4) - rand.nextInt(4);
 
                 pos.setPos(x, y, z);
-                if (world.getBlockState(pos).getMaterial().isReplaceable() && OLLBlocks.SUNFLOWER_BUSH.canPlaceBlockAt(world, pos)) {
+                if (!world.getBlockState(pos).getMaterial().isLiquid() && OLLBlocks.SUNFLOWER_BUSH.canPlaceBlockAt(world, pos)) {
                     OLLBlocks.SUNFLOWER_BUSH.placeAt(world, pos, 2);
                 }
             }
